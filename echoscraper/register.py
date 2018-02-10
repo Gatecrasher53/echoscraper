@@ -141,6 +141,7 @@ class Register(list):
             # File doesn't exist on disk yet, so create it.
             print("Creating new register '{}'.".format(self.filename))
             self._write()
+            self.exists = True
 
         return self
 

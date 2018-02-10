@@ -45,18 +45,20 @@ def usage():
         return '\n'.join(lines)
 
     print(__doc__ + "\n")
-    # TODO: Update usage message to match python package bs
-    print("Usage:\n    python -m echoscraper <command> [options] <argument>")
-    print("\tOR\n    python echoscraper-runner.py <command> [options] <argument>\n")
-
+    print("Usage:\n    echoscraper <command> [options] <filename>")
+    print("\tOR\n    python -m echoscraper <command> [options] <filename>")
+    print("\tOR\n    python echoscraper-runner.py <command> [options] <filename>\n")
+    
     print("Commands:")
     for key, value in COMMANDS.items():
         value["doc"].split('\n')
         print("    {:<10}  {:<}\n".format(key, indent(value["doc"], 16*' ')))
     
     print("Arguments:\n    All commands require the register filename\n")
-    print("Example:\n    python -m echoscraper register -d register.json")
-    print("        - prints the metadata for courses contained in './register.json'")
+    print("Example:\n    $ echoscraper scrape register.json")
+    print("        - Scrapes info and builds 'register.json'")
+    print("    $ echoscraper download register.json")
+    print("        - Starts downloading all lectures in 'register.json'")
 
 def options(start):
     """Get options for a given argument."""
@@ -77,7 +79,6 @@ def parse():
             arguments.append([arg, *options(i)])
 
     return arguments
-
 
 # Main code
 def main():
