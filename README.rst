@@ -139,7 +139,7 @@ When run with no options it simply counts the number of courses left to download
 
 The below options are mutually-exclusive, meaning if multiple options are passed, only one will be executed. They are listed below in the order of highest priority to lowest. Generally, the options with less to print are prioritised over more verbose options.
 
-    *Options:*
+*Options:*
 
 -d          prints [d]ocket, a list of the courses on file
 -m          prints docket with [m]issing lectures for each course
@@ -154,7 +154,7 @@ Downloads any lectures listed in the register which don't have a valid filename 
 
 Download generally runs continuously once started, until all lectures are downloaded (depending on what options are used to run it). The download loop can be halted by pressing ctrl + C (^C) once. This signals the program to terminate once the current download is finished. If pressed a second-time the program will terminate immediately, however download progress on the current file will be lost.
 
-    *Options:*
+*Options:*
 
 -y          Automatically selects [y]es to begin downloading without prompting after login
 -c          Allows the user to [c]hoose what courses to download. Enter the numbers corresponding to the courses you wish to download one at a time. When done, hit enter again to continue. The program will run and download only lectures from the chosen courses, then terminate once complete.
