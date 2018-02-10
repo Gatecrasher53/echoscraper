@@ -56,8 +56,6 @@ LectureDownloader
 
 │    ├── README.rst
 
-│    ├── reg.json
-
 │    └── setup.py
 
 └── env
