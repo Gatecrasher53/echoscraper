@@ -21,10 +21,9 @@ class Echo360login(object):
         
         response = self.sesh.get(loginpage_url)
         while True:
-            usr = input('    Username: ')
-
+            email = input('    Email: ')
             postData = {
-                'email': usr + '@adelaide.edu.au',
+                'email': email,
                 'appId': 'c08c41ee-50e3-45e8-a6e6-e9579b28f620',
             }
             response = self.sesh.post('https://login.echo360.org.au/login/institutions', data=postData)
@@ -32,14 +31,14 @@ class Echo360login(object):
             if "No institutions were found" not in response.text:
                 break
             else:
-                print("    Wrong username.")
+                print("    Wrong email.")
 
         # Now on actual login page, re-use usr and get password, then POST to login
         attempts = 3
         while attempts > 0:
             # Get login credentials
             postData = {
-                'UserName': "uofa\\" + usr,
+                'UserName': "uofa\\" + input('    Username: '),
                 'Password': getpass.getpass('    Password: '),
                 'AuthMethod': 'FormsAuthentication',
             }
@@ -49,7 +48,7 @@ class Echo360login(object):
                 # Login Successful
                 break
 
-            print("    Incorrect password.")
+            print("    Incorrect username or password.")
             attempts = attempts - 1
 
             if attempts == 0:
