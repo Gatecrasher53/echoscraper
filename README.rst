@@ -2,12 +2,16 @@
 Echoscraper
 =============
 
-Echoscraper is used to automatically download and categorize lectures from Echo360.org. State is maintained between runs through the use of a register file which keeps track of what files have been downloaded, and contains the metadata required to uniquely identify each file, on disk and online.
+Echoscraper is used to automatically download and categorize *your* lectures from Echo360.org. State is maintained between runs through the use of a register file which keeps track of what files have been downloaded. It is written in **Python 3**
+
+Scraping lecture metadata from Echo360:
 
 .. image:: doc/scraper.png
     :alt: Example of echoscraper scraping Echo360.
     :width: 100%
     :align: center
+
+Downloading video files from Echo360:
 
 .. image:: /doc/downloader.png
     :alt: Example of echoscraper downloading.
@@ -17,7 +21,8 @@ Echoscraper is used to automatically download and categorize lectures from Echo3
 Test-run
 --------
 
-If you just want to run the package files without going through the hassle of installing it, then you can run all commands through the echoscraper-runner.py wrapper module.
+If you just want to run the package files without going through the hassle of installing it, then you can run all commands through the echoscraper-runner.py wrapper module. Just replace 'echoscraper' with 'python -m echoscraper.echoscraper-runner' in any example code.
+
 However, you will have to manually install the following dependencies:
 
 - lxml==4.1.1
@@ -83,23 +88,23 @@ LectureDownloader
 #. Open 'LectureDownloader' in a terminal window
 #. Create a virtual environment called 'env' that uses python 3 (install virtualenv if you don't have it already):
 
-    virtualenv -p python3 env
+    $ virtualenv -p python3 env
 
 #. Activate the virtual environment:
 
-    source env/bin/activate
+    $ source env/bin/activate
 
 #. Change directory into the 'echoscraper' root folder:
 
-    cd echoscraper
+    $ cd echoscraper
 
 #. Install the 'echoscraper' package:
 
-    python setup.py install
+    $ python setup.py install
 
 #. Change directory back to the 'LectureDownloader' directory
 
-    cd ..
+    $ cd ..
 
 If all went well, echoscraper should now be installed in this virtual environment. Try running 'echoscraper' while in the activated environment and you should be greeted by the usage information for the package.
 
@@ -112,15 +117,15 @@ Choose a name for your register
 
 1. Build the register file by running:
 
-                echoscraper scrape register.json
+                $ echoscraper scrape register.json
 
 2. (optional) Check how many lectures you have to download in your register:
 
-                echoscraper register register.json
+                $ echoscraper register register.json
 
 3. Begin downloading all files in the register by running:
 
-                echoscraper download register.json
+                $ echoscraper download register.json
 
 Commands
 --------
