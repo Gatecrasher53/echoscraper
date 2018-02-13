@@ -4,6 +4,16 @@ Echoscraper
 
 Echoscraper is used to automatically download and categorize lectures from Echo360.org. State is maintained between runs through the use of a register file which keeps track of what files have been downloaded, and contains the metadata required to uniquely identify each file, on disk and online.
 
+.. image:: doc/scraper.png
+    :alt: Example of echoscraper scraping Echo360.
+    :width: 100%
+    :align: center
+
+.. image:: /doc/downloader.png
+    :alt: Example of echoscraper downloading.
+    :width: 100%
+    :align: center
+
 Test-run
 --------
 
