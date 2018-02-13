@@ -2,7 +2,7 @@
 Echoscraper
 =============
 
-Echoscraper is used to automatically download and categorize *your* lectures from Echo360.org. State is maintained between runs through the use of a register file which keeps track of what files have been downloaded. It is written in **Python 3**
+Echoscraper is used to automatically download and categorize *your* lectures from Echo360.org. State is maintained between runs through the use of a register file which keeps track of what files have been downloaded. It is written in **Python 3**.
 
 Scraping lecture metadata from Echo360:
 
@@ -21,7 +21,7 @@ Downloading video files from Echo360:
 Test-run
 --------
 
-If you just want to run the package files without going through the hassle of installing it, then you can run all commands through the echoscraper-runner.py wrapper module. Just replace 'echoscraper' with 'python -m echoscraper.echoscraper-runner' in any example code.
+If you just want to run the package files without going through the hassle of installing it, then you can run all commands through the echoscraper-runner.py wrapper module. Just navigate to the package root directory, and replace 'echoscraper' with 'python -m echoscraper-runner' in any example code.
 
 However, you will have to manually install the following dependencies:
 
