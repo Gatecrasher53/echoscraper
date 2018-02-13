@@ -27,7 +27,9 @@ class LectureSpider(Echo360login):
             print("Scraping lectures for '{}'...".format(course.name))
             self.scrape_course_lectures(indx)
 
+        print("\nBuilt ", end='')
         Register(self.regname).docket()
+        print("\nRun 'echoscraper download {}' to begin downloading.".format(self.regname))
 
     def scrape_courselist(self):
         """Scrapes links to all courses with available lectures."""

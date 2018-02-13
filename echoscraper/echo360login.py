@@ -28,17 +28,33 @@ class Echo360login(object):
             }
             response = self.sesh.post('https://login.echo360.org.au/login/institutions', data=postData)
 
-            if "No institutions were found" not in response.text:
+            # Check POST status_code to determine success
+            if response.status_code == 400:
+                print("\tInput must be student email address.")
+            elif response.status_code == 404:
+                print("\tEmail '{}' not recognized by Echo360.".format(email))
+                print("\tEither domain is wrong, or ID doesn't match valid domain.")
+            elif response.status_code == 200 or response.status_code == 303:
+                # Echo360 institution found
                 break
             else:
-                print("    Wrong email.")
+                print("\tUnkown error occured for email '{}'".format(email))
 
-        # Now on actual login page, re-use usr and get password, then POST to login
+        # Now on actual login page, get username & password, then POST to login
         attempts = 3
         while attempts > 0:
             # Get login credentials
+            if "@adelaide.edu.au" in email:
+                # Adelaide uni requires domain name be added as prefix to username
+                usr = "uofa\\" + input('    Username: ')
+            else:
+                # If other institution, take direct input
+                # If other institutions require a specific domain name, they have to be typed in with the username
+                # Alternatively, extra elif clauses can be added here for specific domains if necessary
+                usr = input('    Username: ')
+
             postData = {
-                'UserName': "uofa\\" + input('    Username: '),
+                'UserName': usr,
                 'Password': getpass.getpass('    Password: '),
                 'AuthMethod': 'FormsAuthentication',
             }
